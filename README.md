@@ -1,13 +1,17 @@
 # pywws2weewx
 Data converter from pywws to weewx
 
-pywws2weewx scans a specified directory (possibly recursively) for pywws raw files and creates a .csv and a import config file for use with weewx importer.
+pywws2weewx scans a specified directory (possibly recursively) for pywws raw files and creates one or more .csv and import config file pairs for use with weewx importer.
 
 ## Installation
-TODO
+Just download the `pywws2weewx.py` to any location and run it
 
 ## Usage
-TODO
+`python3 pywws2weewx.py -r /path/to/pywws/data/raw`
+
+Most likely you will want to use the `-r` option for a recursive run from the base raw data directory.  
+For all options see  
+`python3 pywws2weewx.py --help`
 
 ## Notes
 For large datasets or datasets with short update intervals the update interval may not be consistent throughout the dataset. As an example: in the data from my pywws installation the report interval was reset from shortest possible to 30 minutes after a longer power outtake. Also, at shortest possible the interval varies between 3 and 4 minutes. (I suppose it was around 3.5 minutes in real life, but pywws only registers hour and minute.)
