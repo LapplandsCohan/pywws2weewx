@@ -14,6 +14,8 @@ For all options see
 `python3 pywws2weewx.py --help`
 
 ## Notes
+pywws data (at least my dataset) has some insane rain values of e.g. 9.000 mm rain between two data points. The converter ignores rain data of a data point if it causes the daily total to exceed 300 mm. This can be overridden with the `--max_rain n` option, where `n` is the daily maximum in mm.
+
 For large datasets or datasets with short update intervals the update interval may not be consistent throughout the dataset. As an example: in the data from my pywws installation the report interval was reset from shortest possible to 30 minutes after a longer power outtake. Also, at shortest possible the interval varies between 3 and 4 minutes. (I suppose it was around 3.5 minutes in real life, but pywws only registers hour and minute.)
 As weewx importer requres all datapoints in the dataset to have the same interval pywws2weewx will create one csv/config combination for each detected update interval.
 
