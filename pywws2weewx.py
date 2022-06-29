@@ -81,6 +81,8 @@ class pywwsDatapoint():
 		self.wind_ave                 = wind_ave
 		self.wind_gust                = wind_gust
 		self.wind_dir                 = wind_dir					# integer 0=N, 1=NNE..., 4=E..., 15=NNW
+		if len(wind_dir) == 0							# handle empty wind_dir
+			wind_dir = 0
 		if self.decode_status()["invalid_wind_dir"]:				# The error code 0x800 (2048)
 			self.wind_dir_deg         = -9999						# -9999 is invalid wind in weewx_import
 		else:
